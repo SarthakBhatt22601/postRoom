@@ -16,6 +16,11 @@
     padding: 0 1vw;
 }
 
+.box input:hover {
+    color: white;
+    background-color: black;   
+}
+
 .display-area {
     overflow-x: hidden;
     overflow-y: scroll;
