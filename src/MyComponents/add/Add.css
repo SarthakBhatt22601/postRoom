@@ -1,0 +1,31 @@
+.inputBox{
+    display: flex;
+    padding-left: 1vw;
+    position: absolute;
+    top: 10vh;
+    left: 32vw;
+    width: 35vw;
+    height: 7vh;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 5px #d8d8d8;
+  }
+
+.inputBox button {
+    position: relative;
+    top: 1.6vh;
+    left: 3%;
+    width: 30vw;
+    font-size: 2vmin;
+    color: grey;
+    outline: none;
+    border: none;
+    border-radius: 50px;
+    padding: 0.4vw 0;
+}
+
+.inputBox button:hover {
+    background-color: #E4E6EB;
+    cursor: pointer;
+}
+
