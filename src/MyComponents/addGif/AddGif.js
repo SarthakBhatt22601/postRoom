@@ -11,12 +11,6 @@ export default function AddGif(props) {
 
     let APIKEY = "9MC53RUU3ymtpTQ4CSxqTp4MrovvsesQ";
 
-    const GetTopGif = async () =>{
-        const temp = await fetch('https://api.giphy.com/v1/gifs/trending?api_key='+APIKEY+'&limit=20').then(res => res.json()).then(data => data.data);
-        //console.log(temp);
-        setGifList(temp);
-    }
-
     const FetchGif = async (query) =>{
         const api = 'https://api.giphy.com/v1/gifs/search?api_key='+APIKEY+'&q='+query+'&limit=20';
         const temp = await fetch(api).then(res => res.json()).then(data => data.data);
@@ -30,8 +24,19 @@ export default function AddGif(props) {
     }
     //console.log(props.ig);
     useEffect(() => {
-        GetTopGif();
-    });
+        const abortController = new AbortController();
+        const signal = abortController.signal;
+
+        let APIKEY = "9MC53RUU3ymtpTQ4CSxqTp4MrovvsesQ";
+        fetch('https://api.giphy.com/v1/gifs/trending?api_key='+APIKEY+'&limit=20', {signal : signal} )
+        .then(res => res.json())
+        .then(data => {setGifList(data.data)});
+
+        return function cleanup() {
+            abortController.abort();
+        }
+
+    },[]);
 
     return (
         <div className="box">
@@ -43,7 +48,7 @@ export default function AddGif(props) {
                         return (
                             <React.Fragment key={gif.id}>
                                 <div className="item">
-                                    <img src={gif.images.fixed_width_downsampled.url} onClick={()=>{props.setIg(gif.images.fixed_width_downsampled.url); props.toggleGif();}} />
+                                    <img src={gif.images.fixed_width_downsampled.url} alt="gif" onClick={()=>{props.setIg(gif.images.fixed_width_downsampled.url); props.toggleGif();}} />
                                 </div>
                             </React.Fragment>
                         )    

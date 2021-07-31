@@ -28,7 +28,7 @@ export default function AddPost(props) {
             <hr />
             <p><img style={{width:'2.2vw',height:'2.2vw',borderRadius:'50%'}} src={image} alt="Dp" /> <span className="name"> Guest </span></p>
             <textarea id="content" value={content} onChange={(e)=>setContent(e.target.value)} placeholder="Hey, What's on your mind, Guest?" cols="46" rows="8"></textarea>
-            {ig !== "" ? <img src={ig} /> : null }
+            {ig !== "" ? <img src={ig} alt="gif" /> : null }
             {props.gifPop ? <AddGif toggleGif={props.toggleGif} ig={ig} setIg={setIg} /> : null}
             <div className="gif">
                 <input type="button" value="gif" onClick={props.toggleGif} />
