@@ -1,5 +1,7 @@
 # Posts - React App
 
+## Deployed website:- https://postsreact01.netlify.app/
+
 ## Available Scripts
 
 In the project directory, you can run:
