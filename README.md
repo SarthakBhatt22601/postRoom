@@ -1,4 +1,4 @@
-# Posts - React App
+# postRoom - React App
 
 ## Deployed website:- https://postsreact01.netlify.app/
 
